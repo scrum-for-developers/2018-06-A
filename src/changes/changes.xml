@@ -31,5 +31,11 @@
 				Added better validation messages an a new Version from Springboot 1.5.13
 			</action>
 		</release>
+		<release version="1.3.0" date="2018-06-07"
+			description="Release with more bookdetails">
+			<action dev="unicorns" type="update">
+				Consolidated error-messages, fixed critical bugs, added new column book-description
+			</action>
+		</release>
 	</body>
 </document>
