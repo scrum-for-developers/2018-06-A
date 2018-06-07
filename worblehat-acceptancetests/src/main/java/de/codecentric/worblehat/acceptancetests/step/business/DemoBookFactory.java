@@ -7,7 +7,7 @@ public class DemoBookFactory {
     private Book book;
 
     private DemoBookFactory(){
-        this.book = new Book("A book title", "A book author", "1", "1234567890", 2013);
+        this.book = new Book("A book title", "A book author", "1", "1234567890", 2013,"description");
     }
 
     public static DemoBookFactory createDemoBook(){
@@ -34,6 +34,11 @@ public class DemoBookFactory {
         return this;
     }
 
+    public DemoBookFactory withDescription(String description){
+        this.book.setDescription(description);
+        return this;
+    }
+    
     public DemoBookFactory withYearOfPublication(String year){
         this.book.setYearOfPublication(Integer.parseInt(year));
         return this;
