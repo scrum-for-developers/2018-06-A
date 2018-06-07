@@ -33,7 +33,7 @@ public class InsertBookControllerTest {
 
     private BindingResult bindingResult;
 
-    private static final Book TEST_BOOK = new Book("title", "author", "edition", "isbn", 2016);
+    private static final Book TEST_BOOK = new Book("title", "author", "edition", "isbn", 2016, "great book");
 
     @Before
     public void setUp() {
@@ -65,7 +65,7 @@ public class InsertBookControllerTest {
     public void shouldCreateNewCopyOfExistingBook() {
         setupFormData();
         when(bookService.bookExists(TEST_BOOK.getIsbn())).thenReturn(true);
-        when(bookService.createBook(any(), any(), any(), any(), anyInt())).thenReturn(Optional.of(TEST_BOOK));
+        when(bookService.createBook(any(), any(), any(), any(), anyInt())).thenReturn(Optional.of(TEST_BOOK), any());
 
         String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
 

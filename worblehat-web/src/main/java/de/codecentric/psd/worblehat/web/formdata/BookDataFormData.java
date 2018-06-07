@@ -22,6 +22,9 @@ public class BookDataFormData {
 	@Length(message = "{invalid.length.bookDataFormData.yearOfPublication}", min = 4, max = 4)
 	private String yearOfPublication;
 
+	@NotEmpty(message = "{empty.bookDataFormData.description}")
+	private String description; 
+
 	@NotEmpty(message = "{empty.bookDataFormData.isbn}")
 	@ISBN(message = "{notvalid.bookDataFormData.isbn}")
 	private String isbn;
@@ -35,6 +38,14 @@ public class BookDataFormData {
 
 	public void setYearOfPublication(String yearOfPublication) {
 		this.yearOfPublication = yearOfPublication;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getIsbn() {
@@ -71,9 +82,8 @@ public class BookDataFormData {
 
 	@Override
 	public String toString() {
-		return "BookDataFormData [title=" + title + ", edition=" + edition
-				+ ", yearOfPublication=" + yearOfPublication + ", isbn=" + isbn + ", author=" + author
-				+ "]";
+		return "BookDataFormData [title=" + title + ", edition=" + edition + ", yearOfPublication=" + yearOfPublication
+				+ ", description=" + description + ", isbn=" + isbn + ", author=" + author + "]";
 	}
 
 }

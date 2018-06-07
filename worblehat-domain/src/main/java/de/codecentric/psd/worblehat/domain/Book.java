@@ -1,10 +1,13 @@
 package de.codecentric.psd.worblehat.domain;
 
-import javax.annotation.Nonnull;
-
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Optional;
+
+import javax.annotation.Nonnull;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * Entity implementation class for Entity: Book
@@ -26,12 +29,15 @@ public class Book implements Serializable {
 	private String isbn;
 	private int yearOfPublication;
 
+	private String description;
+	
 	@OneToOne(mappedBy = "borrowedBook", orphanRemoval = true)
 	private Borrowing borrowing;
-
+ 
 	/**
 	 * Empty constructor needed by Hibernate.
 	 */
+	@SuppressWarnings("unused")
 	private Book() {
 		super();
 	}
@@ -49,18 +55,22 @@ public class Book implements Serializable {
 	 *            the isbn
 	 * @param yearOfPublication
 	 *            the yearOfPublication
+	 * @param description
+	 *            book description
 	 */
 	public Book(@Nonnull String title,
 				@Nonnull String author,
 				@Nonnull String edition,
 				@Nonnull String isbn,
-				int yearOfPublication) {
+				int yearOfPublication,
+				@Nonnull String description) {
 		super();
 		this.title = title;
 		this.author = author;
 		this.edition = edition;
 		this.isbn = isbn;
 		this.yearOfPublication = yearOfPublication;
+		this.description = description;
 	}
 
 	public String getTitle() {
@@ -103,7 +113,15 @@ public class Book implements Serializable {
 		this.yearOfPublication = yearOfPublication;
 	}
 
-    public Borrowing getBorrowing() {
+    public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Borrowing getBorrowing() {
 		return borrowing;
 	}
 
@@ -119,12 +137,9 @@ public class Book implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Book{" +
-				"title='" + title + '\'' +
-				", author='" + author + '\'' +
-				", edition='" + edition + '\'' +
-				", isbn='" + isbn + '\'' +
-				", yearOfPublication=" + yearOfPublication +
-				'}';
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", edition=" + edition + ", isbn=" + isbn
+				+ ", yearOfPublication=" + yearOfPublication + ", description=" + description + ", borrowing="
+				+ borrowing + "]";
 	}
+
 }
