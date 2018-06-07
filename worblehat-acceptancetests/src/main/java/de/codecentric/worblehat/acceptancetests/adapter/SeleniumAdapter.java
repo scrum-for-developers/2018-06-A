@@ -1,23 +1,29 @@
 package de.codecentric.worblehat.acceptancetests.adapter;
 
-import de.codecentric.worblehat.acceptancetests.adapter.wrapper.HtmlBookList;
-import de.codecentric.worblehat.acceptancetests.adapter.wrapper.Page;
-import de.codecentric.worblehat.acceptancetests.adapter.wrapper.PageElement;
+import java.io.File;
+import java.io.IOException;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.io.FileUtils;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterStories;
 import org.jbehave.core.annotations.BeforeStories;
 import org.jbehave.core.annotations.ScenarioType;
 import org.joda.time.LocalDateTime;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import de.codecentric.worblehat.acceptancetests.adapter.wrapper.HtmlBookList;
+import de.codecentric.worblehat.acceptancetests.adapter.wrapper.Page;
+import de.codecentric.worblehat.acceptancetests.adapter.wrapper.PageElement;
 
 /**
  * Itegrates Selenium into the tests.
