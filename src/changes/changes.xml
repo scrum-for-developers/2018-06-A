@@ -37,5 +37,11 @@
 				Consolidated error-messages, fixed critical bugs, added new column book-description
 			</action>
 		</release>
+		<release version="1.3.1" date="2018-06-07"
+			description="Release with higher limit in book details">
+			<action dev="unicorns" type="update">
+				Set character limit to 5000 for book description
+			</action>
+		</release>
 	</body>
 </document>
