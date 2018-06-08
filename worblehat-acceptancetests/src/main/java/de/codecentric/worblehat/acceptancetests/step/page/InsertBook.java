@@ -45,7 +45,7 @@ public class InsertBook {
 											 String year,
 											 String isbn) {
 		seleniumAdapter.gotoPage(Page.INSERTBOOKS);
-		fillInsertBookForm(title, author, edition, isbn, year);
+		fillInsertBookForm(title, author, edition, isbn, year, "description");
 		seleniumAdapter.clickOnPageElement(PageElement.ADDBOOKBUTTON);
 		context.putObject("LAST_INSERTED_BOOK", isbn);
 	}
@@ -66,12 +66,13 @@ public class InsertBook {
 
 
 	private void fillInsertBookForm(String title, String author, String edition, String isbn,
-			 String year) {
+			 String year, String description) {
 		seleniumAdapter.typeIntoField("title", title);
 		seleniumAdapter.typeIntoField("edition", edition);
 		seleniumAdapter.typeIntoField("isbn", isbn);
 		seleniumAdapter.typeIntoField("author", author);
 		seleniumAdapter.typeIntoField("yearOfPublication", year);
+		seleniumAdapter.typeIntoField("description", description);
 	}
 
 
