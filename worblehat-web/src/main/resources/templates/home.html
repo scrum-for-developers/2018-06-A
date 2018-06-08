@@ -13,4 +13,7 @@
     <li><a th:href="@{/returnAllBooks}">Return all Books</a></li>
 </ul>
 </body>
+<footer>
+<p>Version: <span th:text="${@environment.getProperty('info.version')}"></span></p>
+</footer>
 </html>

@@ -43,5 +43,12 @@
 				Set character limit to 5000 for book description
 			</action>
 		</release>
+		
+		<release version="1.4.0" date="2018-06-08"
+			description="Release more information for users">
+			<action dev="unicorns" type="update">
+				Show version on home-page
+			</action>
+		</release>
 	</body>
 </document>
